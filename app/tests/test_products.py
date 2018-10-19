@@ -15,16 +15,16 @@ class ProductsTestCase(unittest.TestCase):
     
 
   #test if user can get all products by using get method
-  def test_get_all_products(self):
+  def test_get_all_Products(self):
     response=self.client.get('api/v1/products',content_type="application/json")
     self.assertEqual(response.status_code,200)
 
-  def test_create_product(self):
+  def test_create_new_product(self):
     data = {"product_name":"nivea","product_price":5000,"quantity":40, "product_id":1, "category":"body lotion"}
     response = self.client.post("/api/v1/products/10",data = json.dumps(data),content_type="application/json")
     self.assertEqual(response.status_code,201)
 
-  def test_get_one_products(self):
+  def test_get_one_product(self):
     response=self.client.get('api/v1/products/1',content_type="application/json")
     self.assertEqual(response.status_code,200)
 
