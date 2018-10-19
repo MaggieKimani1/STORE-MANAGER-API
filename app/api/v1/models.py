@@ -47,4 +47,7 @@ class Sales(object):
   def get_all_Sales(self):
     return all_Sales
   
-  
+  def get_one_sale(self, sale_id):
+    for sale in all_Sales:
+      return sale[sale_id]
+    return {"message":"The sale doesn't exist"}
