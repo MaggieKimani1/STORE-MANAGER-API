@@ -44,4 +44,7 @@ class Sales(object):
 
    return {"message":"new sale added successfully"}
     
- 
+  def get_all_Sales(self):
+    return all_Sales
+  
+  
