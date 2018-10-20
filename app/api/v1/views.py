@@ -39,7 +39,7 @@ class One_Product_Endpoint(Resource):
 
 class All_Sales_Endpoint(Resource):    #fetch all sales records
 
-  def post(self, attendant_name,sale_id, total_worth, profit):
+  def post(self):
     data = request.get_json()
 
     sale_id = len(all_Sales) + 1
