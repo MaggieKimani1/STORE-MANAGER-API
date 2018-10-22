@@ -20,19 +20,15 @@ class ProductsTestCase(unittest.TestCase):
     self.assertEqual(response.status_code,200)
 
   def test_create_new_product(self):
-    data = {"product_name":"nivea","product_price":5000,"quantity":40, "product_id":1, "category":"body lotion"}
-    response = self.client.post("/api/v1/products/10",data = json.dumps(data),content_type="application/json")
+    data = {"product_name":"nivea","price":5000,"quantity":40, "category":"body lotion"}
+    response = self.client.post("/api/v1/products",data = json.dumps(data),content_type="application/json")
     self.assertEqual(response.status_code,201)
 
   def test_get_one_product(self):
     response=self.client.get('api/v1/products/1',content_type="application/json")
     self.assertEqual(response.status_code,200)
 
-  # def test_wrong_product(self):
-  #   response=self.client.get("/api/v1/products/50", content_type = "application/json")
-  #   response.status_code = 404
-  #   self.assertEqual(response)
-    
+ 
 
 if __name__ == '__main__':
     unittest.main()

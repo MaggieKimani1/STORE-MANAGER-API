@@ -1,3 +1,4 @@
+from flask import jsonify
 all_Products = {}
 all_Sales = {}
 new_Product = {}
@@ -8,8 +9,9 @@ class Products(object):
   
   def create_new_product(self, product_name, product_id, price, quantity, category):
     
-    for product_id in all_Products:
-      return {"message":"The product you entered already exists"}
+    for product in all_Products:
+      if product_id == product["product_id"]: 
+        return jsonify({"message":"The product you entered already exists"})
 
     new_Product["product_name"] = product_name
     new_Product["price"] = price

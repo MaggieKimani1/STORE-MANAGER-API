@@ -15,10 +15,10 @@ class All_Products_Endpoint(Resource):
     data = request.get_json()
 
     product_id = len(all_Products) + 1
-    product_name = data.get("product_name")
-    product_price = data.get("price")
-    quantity = data.get("quantity")
-    category = data.get("category")
+    product_name = data["product_name"]
+    product_price = data["price"]
+    quantity = data["quantity"]
+    category = data["category"]
 
     response = jsonify(product.create_new_product(product_name, product_id, product_price, quantity, category))
     response.status_code = 201
@@ -43,9 +43,9 @@ class All_Sales_Endpoint(Resource):    #fetch all sales records
     data = request.get_json()
 
     sale_id = len(all_Sales) + 1
-    attendant_name = data.get("attendant_name")
-    total_worth = data.get("total_worth")
-    profit = data.get("profit")    
+    attendant_name = data["attendant_name"]
+    total_worth = data["total_worth"]
+    profit = data["profit"]    
 
     response = jsonify(sale.create_new_sale_record(attendant_name,sale_id, total_worth, profit))
     response.status_code = 201

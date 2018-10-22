@@ -1,6 +1,6 @@
 from flask import Flask, Blueprint
 from flask_restful import Api, Resource
-from ..instance.config import app_config
+from instance.config import app_config
 
 
 
