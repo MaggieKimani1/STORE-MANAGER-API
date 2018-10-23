@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, request, jsonify
+from flask import Flask, Blueprint, request, jsonify, make_response
 from flask_restful import Api, Resource
 from .models import all_Products, all_Sales, Products, Sales
 
@@ -6,62 +6,52 @@ from .models import all_Products, all_Sales, Products, Sales
 app = Flask(__name__)
 api = Api(app)
 
-product = Products()
-sale = Sales()
-
 class All_Products_Endpoint(Resource): 
-
   def post(self):
     data = request.get_json()
-
     product_id = len(all_Products) + 1
-    product_name = data.get("product_name")
-    product_price = data.get("price")
-    quantity = data.get("quantity")
-    category = data.get("category")
-
-    response = jsonify(product.create_new_product(product_name, product_id, product_price, quantity, category))
-    response.status_code = 201
-    return response
+    product_name = data["product_name"]
+    product_price = data["price"]
+    quantity = data["quantity"]
+    category = data["category"]
+    product=Products(product_name, product_id, product_price, quantity, category)
+    response=product.create_new_product()
+    return make_response(jsonify({"message":"success","products":all_Products}), 201)
 
   def get(self):
-    response = jsonify({"products": product.get_all_Products(), "message":"success"})
-    response.status_code = 200
-    return response
+    return make_response(jsonify({"message":"success","products":all_Products}), 200)
 
 
 class One_Product_Endpoint(Resource):
-
-  def get(self, product_id):
-    response = jsonify(product.get_one_product(product_id))
-    response.status_code = 200
-    return response
+    def get(self, product_id):
+      for product in all_Products:
+        if product["product_id"] == product_id:
+          return product
 
 class All_Sales_Endpoint(Resource):    #fetch all sales records
 
-  def post(self, attendant_name,sale_id, total_worth, profit):
+  def post(self):
     data = request.get_json()
-
     sale_id = len(all_Sales) + 1
-    attendant_name = data.get("attendant_name")
-    total_worth = data.get("total_worth")
-    profit = data.get("profit")    
-
-    response = jsonify(sale.create_new_sale_record(attendant_name,sale_id, total_worth, profit))
-    response.status_code = 201
-    return response
+    product_id = data["product_id"]
+    for prod in all_Products:
+      if product_id == prod["product_id"]:
+        new_Sale={
+            "sale_id": prod
+        }
+        all_Sales.append(new_Sale)
+        return make_response(jsonify({"message":"successfully sold"}), 201)
+    return make_response(jsonify({"message":"No product to sell"}), 404)
 
   def get(self):
-    response = jsonify(sale.get_all_Sales())
-    response.status_code = 200
-    return response
+    return make_response(jsonify({"message":"success","sales":all_Sales}), 200)
 
 class One_Sale_Endpoint(Resource):      #fetch one sale record
  
   def get(self, sale_id):
-    response = jsonify(sale.get_one_sale(sale_id))
-    response.status_code = 200
-    return response
+    for sale in all_Sales:
+      if sale["sale_id"] == sale_id:
+        return sale
 
 
   

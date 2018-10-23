@@ -14,4 +14,4 @@ def create_app(config_name):
   app.register_blueprint(v1)
   
   return app
-    
+  

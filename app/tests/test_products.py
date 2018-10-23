@@ -11,7 +11,6 @@ class ProductsTestCase(unittest.TestCase):
     #Define test variables and initialize app.
     self.app = create_app(config_name="testing")
     self.client= create_app('testing').test_client()
-    self.data = {}
     
 
   #test if user can get all products by using get method
@@ -20,8 +19,8 @@ class ProductsTestCase(unittest.TestCase):
     self.assertEqual(response.status_code,200)
 
   def test_create_new_product(self):
-    data = {"product_name":"nivea","product_price":5000,"quantity":40, "product_id":1, "category":"body lotion"}
-    response = self.client.post("/api/v1/products/10",data = json.dumps(data),content_type="application/json")
+    data = {"product_name":"nivea","price":5000,"quantity":40,  "category":"body lotion"}
+    response = self.client.post("/api/v1/products",data = json.dumps(data),content_type="application/json")
     self.assertEqual(response.status_code,201)
 
   def test_get_one_product(self):

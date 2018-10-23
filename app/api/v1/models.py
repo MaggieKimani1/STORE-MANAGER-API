@@ -1,53 +1,52 @@
-all_Products = {}
-all_Sales = {}
+all_Products = []
+all_Sales = []
 product_Description = {}
-new_Sale = {}
-
 
 class Products(object):
+
+  def __init__(self, product_name, product_id, price, quantity, category):
+    self.product_name = product_name
+    self.product_id = product_id
+    self.price = price
+    self.quantity= quantity
+    self.category = category
   
-  def create_new_product(self, product_name, product_id, price, quantity, category):
-    
-    for product_id in all_Products:
-      return {"message":"The product you entered already exists"}
+  def create_new_product(self):
+    for product in all_Products:
+      if self.product_name == product["product_name"]:
+          return "message The product you entered already exists"
+    product_Description["product_id"] = self.product_id
+    product_Description["product_name"] = self.product_name
+    product_Description["price"] = self.price
+    product_Description["quantity"] = self.quantity
+    product_Description["category"] = self.category
 
-      product_Description["product_name"] = product_name
-      product_Description["price"] = price
-      product_Description["quantity"] = quantity
-      product_Description["category"] = category
-
-      all_Products[product_id] = product_Description
-      return {"message":"new product created successfully"}
+    all_Products.append(product_Description)
 
   def get_all_Products(self):
     return all_Products
 
-  def get_one_product(self, product_id):
-
-    for product in all_Products:
-      return product[product_id]
-      
-    return {"message":"Product doesn't exist"}
-
-
+  
 
 class Sales(object):
 
-  def create_new_sale_record(self, attendant_name,sale_id, total_worth, profit):
-   
-   for sale_id in all_Sales:
-      return {"message":"The sale you entered already exists"}
-
-      new_Sale["attendant_name"] = attendant_name
-      new_Sale["total_worth"] = total_worth
-      new_Sale["profit"] = profit
-
-   return {"message":"new sale added successfully"}
+  def __init__(self,product_id, sale_id):
+    self.product_id = product_id
+    self.sale_id = sale_id
+  def create_new_sale_record(self):
+    for prod in all_Products:
+      if self.product_id == prod["product_id"]:
+        new_Sale={
+            self.sale_id: prod
+        }
+        all_Sales.append(new_Sale)
+        return "success"
     
   def get_all_Sales(self):
     return all_Sales
   
   def get_one_sale(self, sale_id):
     for sale in all_Sales:
-      return sale[sale_id]
-    return {"message":"The sale doesn't exist"}
+      if sale_id == sale["id"]:
+        return sale
+    return "message The sale doesn't exist"
