@@ -7,6 +7,7 @@ app = Flask(__name__)
 api = Api(app)
 
 class All_Products_Endpoint(Resource): 
+
   def post(self):
     data = request.get_json()
     product_id = len(all_Products) + 1
@@ -14,8 +15,21 @@ class All_Products_Endpoint(Resource):
     product_price = data["price"]
     quantity = data["quantity"]
     category = data["category"]
-    product=Products(product_name, product_id, product_price, quantity, category)
-    response=product.create_new_product()
+
+    product = Products(product_name, product_id, product_price, quantity, category)
+    response = product.create_new_product()
+
+    if product_name == "" or not product_name:
+      return {"message":"please enter the product_name"},400
+    if quantity == "":
+      return {"message":"Please specify a quantity"},400
+    if product_price == "":
+      return {"message":"please enter the price"},400
+    if category == "":
+      return{"message":"please enter the category"},400
+    if quantity == 0:
+      return{"message":"invalid quantity"},400
+
     return make_response(jsonify({"message":"success","products":all_Products}), 201)
 
   def get(self):
@@ -23,8 +37,8 @@ class All_Products_Endpoint(Resource):
 
 
 class One_Product_Endpoint(Resource):
-    def get(self, product_id):
-      for product in all_Products:
+  def get(self, product_id):
+    for product in all_Products:
         if product["product_id"] == product_id:
           return product
 

@@ -17,6 +17,7 @@ class SalesTestCase(unittest.TestCase):
   #test if user can get all products by using get method
   def test_get_all_Sales(self):
     response=self.client.get('api/v1/sales',content_type="application/json")
+    
     self.assertEqual(response.status_code,200)
 
   def test_create_new_sale(self):
@@ -25,13 +26,12 @@ class SalesTestCase(unittest.TestCase):
     self.assertEqual(response.status_code,201)
 
   def test_get_one_sale(self):
-    response=self.client.get('api/v1/sales/1',content_type="application/json")
+    response=self.client.get('api/v1/sales/1',content_type="application/json")    
     self.assertEqual(response.status_code,200)
 
-  # def test_wrong_product(self):
-  #   response=self.client.get("/api/v1/products/50", content_type = "application/json")
-  #   response.status_code = 404
-  #   self.assertEqual(response)
+  
+
+  
     
 
 if __name__ == '__main__':
