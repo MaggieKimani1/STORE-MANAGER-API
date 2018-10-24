@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="$(if [ "$OSTYPE" "==" "cygwin" ]; then cygpath -u 'D:\ADC2\STORE-MANAGER-API\venv'; else echo '/D/ADC2/STORE-MANAGER-API/venv'; fi;)"
+VIRTUAL_ENV="$(if [ "$OSTYPE" "==" "cygwin" ]; then cygpath -u 'c:\Users\Maggi.DESKTOP-90M23NT\OneDrive\Desktop\ADC2\STORE-MANAGER-API\venv'; else echo '/c/Users/Maggi.DESKTOP-90M23NT/OneDrive/Desktop/ADC2/STORE-MANAGER-API/venv'; fi;)"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

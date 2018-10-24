@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=D:\ADC2\STORE-MANAGER-API\venv"
+set "VIRTUAL_ENV=c:\Users\Maggi.DESKTOP-90M23NT\OneDrive\Desktop\ADC2\STORE-MANAGER-API\venv"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"
