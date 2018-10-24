@@ -7,32 +7,32 @@ Api endpoints for inventory management in store manager
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
 # STORE-MANAGER-API
-⋅⋅*Admin can add a product
-⋅⋅*Admin/store attendant can get all products
-⋅⋅*Admin/store attendant can get a specific product
-⋅⋅*Store attendant can add a sale order
-⋅⋅*Admin can get all sale order records
+⋅⋅* Admin can add a product
+⋅⋅* Admin/store attendant can get all products
+⋅⋅* Admin/store attendant can get a specific product
+⋅⋅* Store attendant can add a sale order
+⋅⋅* Admin can get all sale order records
 
-###Endpoints
+### Endpoints
 
 | HTTP Method   |     Endpoint                |     Function            |
 | ------------- |:--------------------------: | -----------------------:|
 | GET           | /api/v1/products            |   Get all products      |
 | GET           | /api/v1/products/product_id |   Get one product       |
 | GET           | /api/v1/sales               |   Get all sales         |
-| GET           | /api/v1/products/saleid     |   Get one sale record   |
+| GET           | /api/v1/products/sale_id    |   Get one sale record   |
 | POST          | /api/v1/products            |   Create a new sale     |
 | POST          | /api/v1/sales               |   Create a new product  |
 
-###Prerequisites
-⋅⋅*pip
-⋅⋅*virtualenv
-⋅⋅*python 3 or python 2.7
+### Prerequisites
+⋅⋅* pip
+⋅⋅* virtualenv
+⋅⋅* python 3 or python 2.7
 
-##Setting Up Locally
-⋅⋅*Clone the repo
-⋅⋅*git clone https://github.com/MaggieKimani1/STORE-MANAGER-API
-⋅⋅*create a virtual environment and activate it 
-⋅⋅*virtualenv env
-⋅⋅*install dependencies 
-⋅⋅*pip install -r requirements.txt
+## Setting Up Locally
+⋅⋅* Clone the repo
+⋅⋅* git clone https://github.com/MaggieKimani1/STORE-MANAGER-API
+⋅⋅* create a virtual environment and activate it 
+⋅⋅* virtualenv venv
+⋅⋅* install dependencies 
+⋅⋅* pip install -r requirements.txt
