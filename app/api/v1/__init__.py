@@ -8,7 +8,7 @@ api = Api(api_v1)
 
 api.add_resource(All_Products_Endpoint,'/products')
 api.add_resource(One_Product_Endpoint,'/products/<int:product_id>')
-api.add_resource(All_Sales_Endpoint,'/sales')
+api.add_resource(All_Sales_Endpoint,'/products/<int:product_id>/sales')
 api.add_resource(One_Sale_Endpoint,'/sales/<int:sale_id>')
 
    
