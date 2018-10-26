@@ -20,19 +20,15 @@ class SalesTestCase(unittest.TestCase):
     self.assertEqual(response.status_code,200)
 
   def test_create_new_sale(self):
-    data = {"attendant_name":"Maggie","sale_id":1, "total_worth":3000, "profit":5000}
-    response = self.client.post("/api/v1/sales/1",data = json.dumps(data),content_type="application/json")
+    data = {"attendant_name":"Maggie", "total_worth":3000, "profit":5000}
+    response = self.client.post("/api/v1/sales",data = json.dumps(data),content_type="application/json")
     self.assertEqual(response.status_code,201)
 
   def test_get_one_sale(self):
     response=self.client.get('api/v1/sales/1',content_type="application/json")
     self.assertEqual(response.status_code,200)
 
-  # def test_wrong_product(self):
-  #   response=self.client.get("/api/v1/products/50", content_type = "application/json")
-  #   response.status_code = 404
-  #   self.assertEqual(response)
-    
+  
 
 if __name__ == '__main__':
     unittest.main()
