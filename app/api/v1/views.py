@@ -37,6 +37,7 @@ class One_Product_Endpoint(Resource):
     response.status_code = 200
     return response
 
+
 class All_Sales_Endpoint(Resource):    #fetch all sales records
 
   def post(self, attendant_name,sale_id, total_worth, profit):
@@ -50,6 +51,7 @@ class All_Sales_Endpoint(Resource):    #fetch all sales records
     response = jsonify(sale.create_new_sale_record(attendant_name,sale_id, total_worth, profit))
     response.status_code = 201
     return response
+
 
   def get(self):
     response = jsonify(sale.get_all_Sales())
