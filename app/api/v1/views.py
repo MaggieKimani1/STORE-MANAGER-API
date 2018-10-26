@@ -38,6 +38,20 @@ class One_Product_Endpoint(Resource):
     return response
 
 
+class All_Sales_Endpoint(Resource):    #fetch all sales records
+
+  def post(self, attendant_name,sale_id, total_worth, profit):
+    data = request.get_json()
+
+    sale_id = len(all_Sales) + 1
+    attendant_name = data.get("attendant_name")
+    total_worth = data.get("total_worth")
+    profit = data.get("profit")    
+
+    response = jsonify(sale.create_new_sale_record(attendant_name,sale_id, total_worth, profit))
+    response.status_code = 201
+    return response
+
 
 
   

@@ -20,6 +20,7 @@ class Products(object):
       return {"message":"new product created successfully"}
 
   def get_all_Products(self):
+
     
     return all_Products
 
@@ -28,7 +29,27 @@ class Products(object):
     for product in all_Products:
       return product[product_id]
 
+      
     return {"message":"Product doesn't exist"}
+
+
+
+class Sales(object):
+
+  def create_new_sale_record(self, attendant_name,sale_id, total_worth, profit):
+   
+   for sale_id in all_Sales:
+      return {"message":"The sale you entered already exists"}
+
+      new_Sale["attendant_name"] = attendant_name
+      new_Sale["total_worth"] = total_worth
+      new_Sale["profit"] = profit
+
+   return {"message":"new sale added successfully"}
+    
+ 
+
+
 
 
 
