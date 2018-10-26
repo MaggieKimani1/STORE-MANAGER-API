@@ -37,6 +37,7 @@ class One_Product_Endpoint(Resource):
     response.status_code = 200
     return response
 
+
 class All_Sales_Endpoint(Resource):    #fetch all sales records
 
   def post(self, attendant_name,sale_id, total_worth, profit):
@@ -51,6 +52,6 @@ class All_Sales_Endpoint(Resource):    #fetch all sales records
     response.status_code = 201
     return response
 
-  
+
 
   
