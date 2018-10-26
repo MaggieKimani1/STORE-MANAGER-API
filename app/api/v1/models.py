@@ -22,11 +22,19 @@ class Products(object):
     return {"message":"new product created successfully"}
 
   def get_all_Products(self):
+
+    
     return all_Products
 
   def get_one_product(self, product_id):
+
     for product_id in all_Products:
       return all_Products[product_id]
+
+    for product in all_Products:
+      return product[product_id]
+
+      
     return {"message":"Product doesn't exist"}
 
 
@@ -46,11 +54,14 @@ class Sales(object):
 
     return {"message":"new sale added successfully"}
     
+
   def get_all_Sales(self):
     return all_Sales
   
+
   def get_one_sale(self, sale_id):
     for sale_id in all_Sales:
       return all_Sales[sale_id]
     return {"message":"The sale doesn't exist"}
+
 
