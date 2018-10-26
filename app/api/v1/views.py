@@ -53,5 +53,11 @@ class All_Sales_Endpoint(Resource):    #fetch all sales records
     return response
 
 
+  def get(self):
+    response = jsonify(sale.get_all_Sales())
+    response.status_code = 200
+    return response
+
+
 
   
