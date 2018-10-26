@@ -19,4 +19,16 @@ class Products(object):
       all_Products[product_id] = product_Description
       return {"message":"new product created successfully"}
 
-  
+  def get_all_Products(self):
+    
+    return all_Products
+
+  def get_one_product(self, product_id):
+
+    for product in all_Products:
+      return product[product_id]
+
+    return {"message":"Product doesn't exist"}
+
+
+
